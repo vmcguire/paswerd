@@ -8,6 +8,11 @@ var input = false;
 
 while (input == false){
 
+  //password criteria includes
+  //length of password
+   //AT LEAST 8 characters
+   //NOT MORE THAN 128 characters
+
   var characterCount = window.prompt("How many characters do you want in your password, please select at least 8 and no more than 128 characters.");
   console.log(characterCount);
 
@@ -17,21 +22,32 @@ while (input == false){
   }
   console.log(characterCount);
 
+//choices offered to user of the following options, all, some, or none can be selected
+    //choose lowercase
+    
 var lowerCase = window.confirm("Would you like to include lower case letters?");
 
 console.log(lowerCase);
+
+    //choose uppercase
 
 var upperCase = window.confirm("Would you like to include upper case letters?");
 
 console.log(upperCase);
 
+    //numeric
+
 var numeric = window.confirm("Would you like to include numbers?");
 
 console.log(numeric);
 
+    //special characters
+
 var specialCharacters = window.confirm("Would you like to include specialCharacters?");
 
 console.log(specialCharacters);
+
+//validation of choices will be made after each choice, at least one type of selection will occur
 
 if (
   (lowerCase == false) &&
@@ -45,27 +61,45 @@ if (
   }
 }
 
-console.log("Out of loop");
-
-
-//password criteria includes
-  //length of password
-   //AT LEAST 8 characters
-   //NOT MORE THAN 128 characters
+function createPassword(characterCount) {
+  var output = '';
+  var lcase = '';
+  var ucase = '';
+  var num = '';
+  var special = '';
   
-  //choices offered to user of the following options, all, some, or none can be selected
-    //choose lowercase
-    //choose uppercase
-    //numeric
-    //special characters
-  //validation of choices will be made after each choice, at least one type of selection will occur
-
-  //Once all prompts answered,
-    //password is generated
+  if (lowerCase == true) {
+      lcase = 'abcdefghijklmnopqrstuvwxyz';
+  }
+    console.log(lcase);
   
-  //password displayed either on the page, or as an alert
+  if (upperCase == true) {
+      ucase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
+  console.log(ucase);
 
+  if (numeric == true) {
+    num = '0123456789';
+  }
+  console.log(num);
+  
+  if (specialCharacters == true) {
+    special = '!@#$%^&*()_+=-.,/[]';
+  }
+  console.log(special);
+  
+  var selectedInputsTotal = lcase+ucase+num+special;
+  
+  var possibleInputs = selectedInputsTotal.length;
+  for ( var i = 0; i < characterCount; i++ ) {
+      output += selectedInputsTotal.charAt(Math.floor(Math.random() * possibleInputs));
+  }
+  return output;
+}
 
+//password displayed either on the page, or as an alert
+
+alert("Your password is: " + createPassword(characterCount));
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
