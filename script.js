@@ -4,15 +4,18 @@
 
 //prompt for password criteria
 
+var input = false;
 
-var characterCount = window.prompt("How many characters do you want in your password, please select at least 8 and no more than 128 characters.");
+while (input == false){
 
-console.log(characterCount);
+  var characterCount = window.prompt("How many characters do you want in your password, please select at least 8 and no more than 128 characters.");
+  console.log(characterCount);
 
-
-if (characterCount < 8 || characterCount > 128) {
-  window.prompt("You must input no more than 128 or no less than 8 in only numberical format. Thank you!");
-} 
+  while (characterCount < 8 || characterCount > 128) {
+    window.alert("You must input no more than 128 or no less than 8 in only numberical format. Thank you!");
+    var characterCount = window.prompt("How many characters do you want in your password, please select at least 8 and no more than 128 characters.");
+  }
+  console.log(characterCount);
 
 var lowerCase = window.confirm("Would you like to include lower case letters?");
 
@@ -36,11 +39,13 @@ if (
   (numeric == false) &&
   (specialCharacters == false)) {
     window.alert("You did not select one of the four options of lower case, upper case, numeric, or special characters. Please select at least one. Please try again.");
+  } else {
+    input == true;
+    break;
+  }
+}
 
-  };
-
-  characterCount();
-
+console.log("Out of loop");
 
 
 //password criteria includes
