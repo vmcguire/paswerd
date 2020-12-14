@@ -2,6 +2,7 @@
 var generatePassword = function () {
 
   var input = false;
+
   while (input == false){
 
     //password criteria includes length of password AT LEAST 8 characters NOT MORE THAN 128 characters
@@ -28,7 +29,7 @@ var generatePassword = function () {
 
         //special characters
 
-    var specialCharacters = window.confirm("Would you like to include specialCharacters?");
+    var specialCharacters = window.confirm("Would you like to include special characters?");
 
     //validation of choices will be made after each choice, at least one type of selection will occur
 
@@ -89,7 +90,7 @@ var generatePassword = function () {
   var numoutput = false;
   var specialoutput = false;
 
-//Continually make PAssword untill all criteria is met based on user input
+  //Continually make PAssword untill all criteria is met based on user input
   while (
     ((lowerCase==true) && (lcaseoutput == false)) || 
     ((upperCase == true) && (ucaseoutput == false)) || 
@@ -97,11 +98,6 @@ var generatePassword = function () {
     ((specialCharacters == true) && (specialoutput == false))){
 
     makePassword(characterCount);
-
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("A. output after makePassword() i.e. Password: " + output);
-    console.log("B. output.length after makePassword(): " + output.length);
-    console.log("C. characterCount after makePassword(): " + characterCount);
   
   //check output for at least 1 character from each of the selected Inputs
 
@@ -112,30 +108,13 @@ var generatePassword = function () {
       
       lowerCaseArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
       for(var l = 0; l < lcase.length; l++){
-        console.log("3l. lowerCaseArray[l]: " + lowerCaseArray[l]);
-        console.log("1l. output.indexOf(lowerCaseArray[l]): " + output.indexOf(lowerCaseArray[l]));
-        console.log("2l. lcaseoutput: " + lcaseoutput);
-        console.log("4l. l: " + l);
-        console.log("5l. output: " + output);
-        console.log("6l. output.length: " + output.length);
-        console.log("7l. characterCount: " + characterCount);
-        console.log("8l. output.charAt(output.length -1 ): " + output.charAt(output.length - 1));
-        console.log("9l. output.charAt(characterCount -1 ): " + output.charAt(characterCount - 1));
-        console.log("10l. selectedInputsTotal.length: " + selectedInputsTotal.length);
-        console.log("11l. lcase.length : " + lcase.length);
         if ((output.indexOf(lowerCaseArray[l])) > - 1) {
           lcaseoutput = true;
-          console.log('&&&&&&&&&&&&&&&&&&&&&&&&LOWERCASE TRUE&&&&&&&&&&&&&&&&&&&&&&: ' + lcaseoutput);
           break;
         }
         if ((l === lcase.length - 1) && (output.indexOf(numericArray[u])) === - 1){
-          console.log("*******************Dl.before makePassword ZERO: " + output);
           output = '';
-          console.log("*******************El. after makePassword ZERO: " + output);
           lcaseoutput = false;
-          debugger;
-          console.log('&&&&&&&&&&&&&&&&&&&&&&&LOWERCASE FALSE&&&&&&&&&&&&&&&&&&&&&: ' + lcaseoutput);
-          // makePassword();
         } 
       }
     }
@@ -147,30 +126,13 @@ var generatePassword = function () {
       
       upperCaseArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
       for(var u = 0; u < ucase.length; u++){
-        console.log("3u. upperCaseArray[u]: " + upperCaseArray[u]);
-        console.log("1u. output.indexOf(upperCaseArray[j]): " + output.indexOf(upperCaseArray[u]));
-        console.log("2u. ucaseoutput: " + ucaseoutput);
-        console.log("4u. u: " + u);
-        console.log("5u. output: " + output);
-        console.log("6u. output.length: " + output.length);
-        console.log("7u. characterCount: " + characterCount);
-        console.log("8u. output.charAt(output.length -1 ): " + output.charAt(output.length - 1));
-        console.log("9u. output.charAt(characterCount -1 ): " + output.charAt(characterCount - 1));
-        console.log("10u. selectedInputsTotal.length: " + selectedInputsTotal.length);
-        console.log("11u. ucase.length : " + ucase.length);
         if ((output.indexOf(upperCaseArray[u])) > - 1) {
           ucaseoutput = true;
-          console.log('&&&&&&&&&&&&&&&&&&&&UPPER CASE TRUE&&&&&&&&&&&&&&&&&&&&&&&&: ' + ucaseoutput);
           break;
         }
         if ((u === ucase.length - 1) && (output.indexOf(numericArray[u])) === - 1){
-          console.log("*******************Du.before makePassword ZERO: " + output);
           output = '';
-          console.log("*******************Eu. after makePassword ZERO: " + output);
           ucaseoutput = false;
-          debugger;
-          console.log('&&&&&&&&&&&&&&&&&&&&UPPER CASE FALSE&&&&&&&&&&&&&&&&&&&&&&&: ' + ucaseoutput);
-          // makePassword();
         } 
       }
     }
@@ -182,30 +144,13 @@ var generatePassword = function () {
       
       numericArray = ['0','1','2','3','4','5','6','7','8','9']
       for(var n = 0; n < num.length; n++){
-        console.log("3n. numericArray[n]: " + numericArray[n]);
-        console.log("1n. output.indexOf(numericArray[n]): " + output.indexOf(numericArray[n]));
-        console.log("2n. numoutput: " + numoutput);
-        console.log("4n. n: " + n);
-        console.log("5n. output: " + output);
-        console.log("6n. output.length: " + output.length);
-        console.log("7n. characterCount: " + characterCount);
-        console.log("8n. output.charAt(output.length -1 ): " + output.charAt(output.length - 1));
-        console.log("9n. output.charAt(characterCount -1 ): " + output.charAt(characterCount - 1));
-        console.log("10n. selectedInputsTotal.length: " + selectedInputsTotal.length);
-        console.log("11n. num.length : " + num.length);
         if ((output.indexOf(numericArray[n])) > - 1) {
           numoutput = true;
-          console.log('&&&&&&&&&&&&&&&&&&&&&&&&&NUMERIC TRUE&&&&&&&&&&&&&&&&&&&&&&&&&&: ' + numoutput);
           break;
         }
         if ((n === num.length - 1) && (output.indexOf(numericArray[n])) === - 1){
-          console.log("*******************Dn.before makePassword ZERO: " + output);
           output = '';
-          console.log("*******************En. after makePassword ZERO: " + output);
           numoutput = false;
-          debugger;
-          console.log('&&&&&&&&&&&&&&&&&&&&&&&&NUMERIC FALSE&&&&&&&&&&&&&&&&&&&&&&&&&&: ' + numoutput);
-          // makePassword();
         } 
       }
     }
@@ -213,34 +158,16 @@ var generatePassword = function () {
     // if 'specialCharacters' == true, check 'output' for each character from 'special' string, and 
     // stop 'for' loop once a letter from 'special' is found
 
-
     if (specialCharacters == true) {
       specialCharactersArray = ['!','@','#','$','%','^','&','*','(',')','_','+','=','-','.',',','/','[',']']
       for(var s = 0; s < special.length; s++){
-        console.log("3s. specialCharactersArray[s]: " + specialCharactersArray[s]);
-        console.log("1s. output.indexOf(specialCharactersArray[s]): " + output.indexOf(specialCharactersArray[s]));
-        console.log("2s. specialoutput: " + specialoutput);
-        console.log("4s. s: " + s);
-        console.log("5s. output: " + output);
-        console.log("6s. output.length: " + output.length);
-        console.log("7s. characterCount: " + characterCount);
-        console.log("8s. output.charAt(output.length -1 ): " + output.charAt(output.length - 1));
-        console.log("9s. output.charAt(characterCount -1 ): " + output.charAt(characterCount - 1));
-        console.log("10s. selectedInputsTotal.length: " + selectedInputsTotal.length);
-        console.log("11s. lcase.length : " + special.length);
         if ((output.indexOf(specialCharactersArray[s])) > - 1) {
           specialoutput = true;
-          console.log('&&&&&&&&&&&&&&&&&&&&&&&SPECIAL TRUE&&&&&&&&&&&&&&&&&&&&&&&: ' + specialoutput);
           break;
         }
         if ((s === special.length - 1) && (output.indexOf(numericArray[s])) === - 1){
-          console.log("*******************Ds.before makePassword ZERO: " + output);
           output = '';
-          console.log("*******************Es. after makePassword ZERO: " + output);
-          debugger;
           specialoutput = false;
-          console.log('&&&&&&&&&&&&&&&&&&&&&SPECIAL FALSE&&&&&&&&&&&&&&&&&&&&&&&&: ' + specialoutput);
-          // makePassword();
         } 
       }
     }
